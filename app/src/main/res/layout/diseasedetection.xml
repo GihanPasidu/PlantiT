@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Disease Detection"
+        android:text="Disease &amp; detection"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="61dp" />
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/diseaseDetectionTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload & Detect"
+        android:text="Upload &amp; Detect"
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="328dp" />
 
