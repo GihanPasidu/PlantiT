@@ -2,18 +2,18 @@ package com.pasindu.plantit;
 
 public class navigation {
     public void showNearbyClinics() {
-        // Logic to find and display nearby plant clinics, stores, nurseries
+        System.out.println("Showing nearby clinics...");
     }
 
     public void markPlantingLocation() {
-        // Logic to mark user-selected planting location
+        System.out.println("Marking planting location...");
     }
 
     public void showWeather() {
-        // Logic to fetch and show weather at user's location
+        System.out.println("Showing weather...");
     }
 
     public void navigateToBuyTools() {
-        // Logic to navigate to stores selling fertilizers/tools
+        System.out.println("Navigating to buy tools...");
     }
 }

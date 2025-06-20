@@ -23,12 +23,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showGetStartedPage() {
-        // Example: set a different layout or show a welcome message
-        // setContentView(R.layout.activity_get_started);
+        setContentView(R.layout.activity_get_started);
     }
 
     public void openPlantRegistration() {
-        // Show a new layout/dialog to collect Plant Photo, Plant Name, Plant Age
-        // Then call plantprofile.registerPlant(...) with input data
+        setContentView(R.layout.activity_plant_registration);
+        // Then call plantprofile.registerPlant(...) with user input
     }
 }

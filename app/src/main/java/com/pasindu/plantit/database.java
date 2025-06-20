@@ -1,5 +1,6 @@
 package com.pasindu.plantit;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -30,9 +31,12 @@ public class database extends SQLiteOpenHelper {
     }
 
     public long insertPlant(String name, int age, byte[] imageData) {
-        // Insert plant data into 'plants' table
-        // Return row ID or other indicator
-        return 0; // Placeholder
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("age", age);
+        values.put("image", imageData);
+        return db.insert("plants", null, values);
     }
 
     public Cursor getAllPlants() {

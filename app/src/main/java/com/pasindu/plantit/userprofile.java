@@ -14,7 +14,9 @@ public class userprofile {
         database db = new database(context);
         Cursor cursor = db.getAllPlants();
         while (cursor.moveToNext()) {
-            // Use cursor.getString(...) etc. to retrieve plant data
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            int age = cursor.getInt(cursor.getColumnIndex("age"));
+            // Use 'name' and 'age' as needed
         }
         cursor.close();
     }
