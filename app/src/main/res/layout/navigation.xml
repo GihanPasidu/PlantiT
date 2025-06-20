@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnShowClinics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Nearby Clinics" />
+
+    <Button
+        android:id="@+id/btnMarkLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mark Planting Location" />
+
+    <TextView
+        android:id="@+id/tvWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather at your location: 25°C" />
+
+    <Button
+        android:id="@+id/btnBuyTools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy Fertilizers or Tools" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
