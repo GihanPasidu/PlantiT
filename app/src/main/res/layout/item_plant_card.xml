@@ -1,6 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/surface">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Plant Image with Status Indicator -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageContainer"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewPlant"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_plant_placeholder"
+                android:contentDescription="Plant Image" />
+
+            <!-- Health Status Indicator -->
+            <View
+                android:id="@+id/healthStatusIndicator"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="6dp"
+                android:background="@drawable/circle_indicator"
+                android:backgroundTint="@color/success" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Plant Information Section -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/imageContainer"
+            app:layout_constraintTop_toTopOf="@id/imageContainer"
+            app:layout_constraintEnd_toStartOf="@id/actionButton"
+            app:layout_constraintBottom_toBottomOf="@id/imageContainer">
+
+            <!-- Plant Name and Type -->
+            <TextView
+                android:id="@+id/textViewPlantName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Monstera Deliciosa"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/primary_text"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Monstera Deliciosa" />
+
+            <TextView
+                android:id="@+id/textViewPlantType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Indoor Plant"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_text"
+                android:textStyle="italic"
+                tools:text="Indoor Plant" />
+
+            <!-- Plant Description -->
+            <TextView
+                android:id="@+id/textViewPlantDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Healthy and growing well in bright indirect light"
+                android:textSize="14sp"
+                android:textColor="@color/secondary_text"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:lineSpacingExtra="2dp"
+                tools:text="Healthy and growing well in bright indirect light" />
+
+            <!-- Care Status Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Last Watered -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_water_drop"
+                        android:contentDescription="Water Icon"
+                        app:tint="@color/info" />
+
+                    <TextView
+                        android:id="@+id/textViewLastWatered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="2 days ago"
+                        android:textSize="11sp"
+                        android:textColor="@color/info"
+                        tools:text="2 days ago" />
+
+                </LinearLayout>
+
+                <!-- Next Care -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_schedule"
+                        android:contentDescription="Schedule Icon"
+                        app:tint="@color/warning" />
+
+                    <TextView
+                        android:id="@+id/textViewNextCare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="In 3 days"
+                        android:textSize="11sp"
+                        android:textColor="@color/warning"
+                        tools:text="In 3 days" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Action Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/actionButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            style="@style/Widget.Material3.Button.IconButton"
+            app:icon="@drawable/ic_more_vert"
+            app:iconSize="20dp"
+            app:iconTint="@color/secondary_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Care Alert Badge (Initially Hidden) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/careAlertBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/warning_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionButton">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="Needs Water"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:textColor="@color/warning"
+                tools:text="Needs Water" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Plant Age/Growth Progress -->
+        <LinearLayout
+            android:id="@+id/progressSection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageContainer">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Growth:"
+                android:textSize="12sp"
+                android:textColor="@color/secondary_text"
+                android:textStyle="bold" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/growthProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="8dp"
+                android:progress="65"
+                app:indicatorColor="@color/success"
+                app:trackColor="@color/success_light"
+                app:trackThickness="4dp" />
+
+            <TextView
+                android:id="@+id/textViewPlantAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6 months"
+                android:textSize="12sp"
+                android:textColor="@color/success"
+                android:textStyle="bold"
+                tools:text="6 months" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
