@@ -500,6 +500,51 @@
 
         </LinearLayout>
 
+        <!-- Hidden Buttons for Java Code Compatibility -->
+        <LinearLayout
+            android:id="@+id/hiddenButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnViewMyPlants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View My Plants" />
+
+            <Button
+                android:id="@+id/btnAddNewPlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add New Plant" />
+
+            <Button
+                android:id="@+id/btnDiseaseDiagnosis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disease Diagnosis" />
+
+            <Button
+                android:id="@+id/btnCareSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Care Schedule" />
+
+            <Button
+                android:id="@+id/btnEnvironmentalMonitoring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Environmental Monitoring" />
+
+            <Button
+                android:id="@+id/btnNearbyServices"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nearby Services" />
+        </LinearLayout>
+
         <!-- Bottom Spacing -->
         <View
             android:layout_width="match_parent"

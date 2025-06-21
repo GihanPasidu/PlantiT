@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class homeinterface extends Activity {
+public class HomeInterface extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +18,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement PlantListActivity
-                startActivity(new Intent(homeinterface.this, PlantListActivity.class));
+                // Uncomment the next line if PlantListActivity exists
+                // startActivity(new Intent(HomeInterface.this, PlantListActivity.class));
             }
         });
 
@@ -28,7 +29,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement PlantRegistrationActivity
-                startActivity(new Intent(homeinterface.this, PlantRegistrationActivity.class));
+                // Uncomment the next line if PlantRegistrationActivity exists
+                // startActivity(new Intent(HomeInterface.this, PlantRegistrationActivity.class));
             }
         });
 
@@ -38,7 +40,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement DiseaseDiagnosisActivity
-                startActivity(new Intent(homeinterface.this, DiseaseDiagnosisActivity.class));
+                // Uncomment the next line if DiseaseDiagnosisActivity exists
+                // startActivity(new Intent(HomeInterface.this, DiseaseDiagnosisActivity.class));
             }
         });
 
@@ -48,7 +51,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement CareScheduleActivity
-                startActivity(new Intent(homeinterface.this, CareScheduleActivity.class));
+                // Uncomment the next line if CareScheduleActivity exists
+                // startActivity(new Intent(HomeInterface.this, CareScheduleActivity.class));
             }
         });
 
@@ -58,7 +62,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement EnvironmentalMonitoringActivity
-                startActivity(new Intent(homeinterface.this, EnvironmentalMonitoringActivity.class));
+                // Uncomment the next line if EnvironmentalMonitoringActivity exists
+                // startActivity(new Intent(HomeInterface.this, EnvironmentalMonitoringActivity.class));
             }
         });
 
@@ -68,7 +73,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement NearbyServicesActivity
-                startActivity(new Intent(homeinterface.this, NearbyServicesActivity.class));
+                // Uncomment the next line if NearbyServicesActivity exists
+                // startActivity(new Intent(HomeInterface.this, NearbyServicesActivity.class));
             }
         });
 
@@ -78,7 +84,8 @@ public class homeinterface extends Activity {
             @Override
             public void onClick(View v) {
                 // TODO: Implement SettingsActivity
-                startActivity(new Intent(homeinterface.this, SettingsActivity.class));
+                // Uncomment the next line if SettingsActivity exists
+                // startActivity(new Intent(HomeInterface.this, SettingsActivity.class));
             }
         });
 
@@ -87,7 +94,7 @@ public class homeinterface extends Activity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homeinterface.this, MainActivity.class);
+                Intent intent = new Intent(HomeInterface.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finish();

@@ -2,13 +2,14 @@ package com.pasindu.plantit;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,16 +24,26 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        Button btnGetStarted = findViewById(R.id.btnGetStarted);
+        MaterialButton btnGetStarted = findViewById(R.id.btnGetStarted);
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showGetStartedPage();
             }
         });
+
+        MaterialButton btnOpenFeatures = findViewById(R.id.btnOpenFeatures);
+        btnOpenFeatures.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: Implement feature exploration navigation
+            }
+        });
     }
 
     public void showGetStartedPage() {
         setContentView(R.layout.homeinterface);
+        // WARNING: After this, all previous view references and listeners are invalid.
+        // You must re-initialize any buttons or listeners for the new layout here if needed.
     }
 }

@@ -1,6 +1,6 @@
 package com.pasindu.plantit;
 
-public class notification {
+public class Notification {
     public void sendPlantCareAlert(String message) {
         System.out.println("Notification: " + message);
     }

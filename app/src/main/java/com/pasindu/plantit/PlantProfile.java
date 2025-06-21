@@ -2,15 +2,15 @@ package com.pasindu.plantit;
 
 import android.content.Context;
 
-public class plantprofile {
+public class PlantProfile {
     private Context context;
 
-    public plantprofile(Context context) {
+    public PlantProfile(Context context) {
         this.context = context;
     }
 
     public void registerPlant(String name, int age, byte[] imageData) {
-        database db = new database(context);
+        DataBase db = new DataBase(context);
         db.insertPlant(name, age, imageData);
     }
 }

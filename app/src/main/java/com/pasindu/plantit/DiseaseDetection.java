@@ -1,6 +1,6 @@
 package com.pasindu.plantit;
 
-public class diseasedetection {
+public class DiseaseDetection {
     public String diagnoseDisease(byte[] imageData, String language) {
         if (language.equals("en")) {
             return "Disease: Leaf Spot\nDescription: Fungal spots on leaves.\nTreatment: Apply antifungal spray.";

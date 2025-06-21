@@ -6,11 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class database extends SQLiteOpenHelper {
+public class DataBase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "PlantiT.db";
     private static final int DATABASE_VERSION = 1;
 
-    public database(Context context) {
+    public DataBase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
