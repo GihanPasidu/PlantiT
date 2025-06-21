@@ -9,8 +9,8 @@ public class PlantProfile {
         this.context = context;
     }
 
-    public void registerPlant(String name, int age, byte[] imageData) {
+    public void registerPlant(String name, String type, int age, String location, String notes, byte[] imageData) {
         DataBase db = new DataBase(context);
-        db.insertPlant(name, age, imageData);
+        db.insertPlant(name, type, age, location, notes, imageData);
     }
 }
