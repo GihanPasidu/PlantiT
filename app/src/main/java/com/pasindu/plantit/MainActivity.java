@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start LoginActivity instead of changing layout
+                // Start LoginActivity
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         btnOpenFeatures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement feature exploration navigation
+                // Navigate to Navigation activity
+                Intent intent = new Intent(MainActivity.this, Navigation.class);
+                startActivity(intent);
             }
         });
     }

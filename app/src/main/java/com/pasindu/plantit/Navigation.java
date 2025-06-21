@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import com.google.android.material.button.MaterialButton;
+import android.content.Intent;
 
 public class Navigation extends Activity {
     @Override
@@ -18,7 +19,9 @@ public class Navigation extends Activity {
         cardClinics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showNearbyClinics();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -27,7 +30,9 @@ public class Navigation extends Activity {
         cardShops.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToBuyTools();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -36,7 +41,9 @@ public class Navigation extends Activity {
         btnMarkLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                markPlantingLocation();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -45,7 +52,9 @@ public class Navigation extends Activity {
         btnRefreshWeather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showWeather();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -54,7 +63,9 @@ public class Navigation extends Activity {
         btnShowClinics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showNearbyClinics();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -63,7 +74,9 @@ public class Navigation extends Activity {
         btnBuyTools.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToBuyTools();
+                // Placeholder: Navigate to MainActivity
+                Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

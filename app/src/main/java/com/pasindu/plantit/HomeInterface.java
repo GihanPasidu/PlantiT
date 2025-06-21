@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import androidx.cardview.widget.CardView;
+import com.google.android.material.button.MaterialButton;
 
 public class HomeInterface extends Activity {
     @Override
@@ -12,85 +13,88 @@ public class HomeInterface extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homeinterface);
 
-        // View My Plants -> Plant Profile Screen
-        Button btnViewMyPlants = findViewById(R.id.btnViewMyPlants);
-        btnViewMyPlants.setOnClickListener(new View.OnClickListener() {
+        // CardView: My Plants -> User Profile
+        CardView cardViewPlants = findViewById(R.id.cardViewPlants);
+        cardViewPlants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement PlantListActivity
-                // Uncomment the next line if PlantListActivity exists
-                // startActivity(new Intent(HomeInterface.this, PlantListActivity.class));
+                try {
+                    Intent intent = new Intent(HomeInterface.this, UserProfile.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Add New Plant -> Plant Registration
-        Button btnAddNewPlant = findViewById(R.id.btnAddNewPlant);
-        btnAddNewPlant.setOnClickListener(new View.OnClickListener() {
+        // CardView: Add Plant -> Plant Profile
+        CardView cardAddPlant = findViewById(R.id.cardAddPlant);
+        cardAddPlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement PlantRegistrationActivity
-                // Uncomment the next line if PlantRegistrationActivity exists
-                // startActivity(new Intent(HomeInterface.this, PlantRegistrationActivity.class));
+                try {
+                    Intent intent = new Intent(HomeInterface.this, PlantProfile.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Disease Diagnosis -> Disease Diagnosis Screen
-        Button btnDiseaseDiagnosis = findViewById(R.id.btnDiseaseDiagnosis);
-        btnDiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
+        // CardView: Disease Diagnosis -> Disease Detection
+        CardView cardDiseaseDiagnosis = findViewById(R.id.cardDiseaseDiagnosis);
+        cardDiseaseDiagnosis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement DiseaseDiagnosisActivity
-                // Uncomment the next line if DiseaseDiagnosisActivity exists
-                // startActivity(new Intent(HomeInterface.this, DiseaseDiagnosisActivity.class));
+                try {
+                    Intent intent = new Intent(HomeInterface.this, DiseaseDetection.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Care Schedule -> Care Schedule Screen
-        Button btnCareSchedule = findViewById(R.id.btnCareSchedule);
-        btnCareSchedule.setOnClickListener(new View.OnClickListener() {
+        // CardView: Care Schedule -> Care Scheduler
+        CardView cardCareSchedule = findViewById(R.id.cardCareSchedule);
+        cardCareSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement CareScheduleActivity
-                // Uncomment the next line if CareScheduleActivity exists
-                // startActivity(new Intent(HomeInterface.this, CareScheduleActivity.class));
+                try {
+                    Intent intent = new Intent(HomeInterface.this, CareScheduler.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Environmental Monitoring -> Environmental Monitoring Screen
-        Button btnEnvironmentalMonitoring = findViewById(R.id.btnEnvironmentalMonitoring);
-        btnEnvironmentalMonitoring.setOnClickListener(new View.OnClickListener() {
+        // CardView: Nearby Services -> Navigation
+        CardView cardNearbyServices = findViewById(R.id.cardNearbyServices);
+        cardNearbyServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement EnvironmentalMonitoringActivity
-                // Uncomment the next line if EnvironmentalMonitoringActivity exists
-                // startActivity(new Intent(HomeInterface.this, EnvironmentalMonitoringActivity.class));
+                try {
+                    Intent intent = new Intent(HomeInterface.this, Navigation.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
-        // Nearby Services -> Nearby Services (Google Map)
-        Button btnNearbyServices = findViewById(R.id.btnNearbyServices);
-        btnNearbyServices.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO: Implement NearbyServicesActivity
-                // Uncomment the next line if NearbyServicesActivity exists
-                // startActivity(new Intent(HomeInterface.this, NearbyServicesActivity.class));
-            }
-        });
-
-        // Settings -> Settings Screen
-        Button btnSettings = findViewById(R.id.btnSettings);
+        // Settings -> Settings Activity (unchanged)
+        MaterialButton btnSettings = findViewById(R.id.btnSettings);
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Implement SettingsActivity
-                // Uncomment the next line if SettingsActivity exists
-                // startActivity(new Intent(HomeInterface.this, SettingsActivity.class));
+                Intent intent = new Intent(HomeInterface.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
-        // Logout
-        Button btnLogout = findViewById(R.id.btnLogout);
+        // Logout (unchanged)
+        MaterialButton btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
