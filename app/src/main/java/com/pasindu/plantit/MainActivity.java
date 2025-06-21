@@ -1,5 +1,6 @@
 package com.pasindu.plantit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showGetStartedPage();
+                // Start LoginActivity instead of changing layout
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -39,11 +42,5 @@ public class MainActivity extends AppCompatActivity {
                 // TODO: Implement feature exploration navigation
             }
         });
-    }
-
-    public void showGetStartedPage() {
-        setContentView(R.layout.homeinterface);
-        // WARNING: After this, all previous view references and listeners are invalid.
-        // You must re-initialize any buttons or listeners for the new layout here if needed.
     }
 }

@@ -2,8 +2,13 @@ package com.pasindu.plantit;
 
 import android.database.Cursor;
 import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import com.google.android.material.button.MaterialButton;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class UserProfile {
+public class UserProfile extends AppCompatActivity {
     private Context context;
 
     public UserProfile(Context context) {
@@ -46,6 +51,28 @@ public class UserProfile {
             cursor.close();
         }
         return userData;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.userprofile);
+
+        MaterialButton btnLogout = findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Perform logout logic here
+                Login loginHelper = new Login(UserProfile.this);
+                loginHelper.logout();
+
+                // Redirect to login screen
+                Intent intent = new Intent(UserProfile.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     // Helper class to hold user data

@@ -417,4 +417,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Add Log Out button at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:paddingBottom="32dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Log Out"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            style="@style/Widget.Material3.Button"
+            app:backgroundTint="@color/error"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_logout"
+            app:iconSize="18dp"
+            app:iconTint="@color/white" />
+    </LinearLayout>
 </ScrollView>

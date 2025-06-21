@@ -73,12 +73,23 @@ public class DataBase extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM plants", null);
     }
 
-    // Register a new user
+    // Register a new user (email, password only)
     public boolean registerUser(String email, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("email", email);
         values.put("password", password);
+        long result = db.insert("users", null, values);
+        return result != -1;
+    }
+
+    // Register a new user with name
+    public boolean registerUserWithName(String email, String password, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("email", email);
+        values.put("password", password);
+        values.put("name", name);
         long result = db.insert("users", null, values);
         return result != -1;
     }
