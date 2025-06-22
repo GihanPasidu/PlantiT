@@ -81,15 +81,16 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if (!valid) return;
 
+                // Register user in database before navigating to HomeInterface
                 DataBase db = new DataBase(SignUpActivity.this);
-                boolean signUpSuccess = db.registerUserWithName(email, password, fullName);
+                boolean registered = db.registerUserWithName(email, password, fullName);
 
-                if (signUpSuccess) {
+                if (registered) {
                     Intent intent = new Intent(SignUpActivity.this, HomeInterface.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    tilEmail.setError("Registration failed. Email may already be used.");
+                    tilEmail.setError("Email already exists");
                 }
             }
         });
@@ -107,6 +108,19 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
+        }
+
+        MaterialButton btnGoogleSignup = findViewById(R.id.btnGoogleSignup);
+        if (btnGoogleSignup != null) {
+            btnGoogleSignup.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Always go to HomeInterface after clicking Google sign up
+                    Intent intent = new Intent(SignUpActivity.this, HomeInterface.class);
                     startActivity(intent);
                     finish();
                 }

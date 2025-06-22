@@ -52,16 +52,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (!valid) return;
 
-                Login loginHelper = new Login(LoginActivity.this);
-                boolean isValid = loginHelper.login(email, password);
-
-                if (isValid) {
-                    Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    tilPassword.setError("Invalid email or password");
-                }
+                // Go to HomeInterface after successful validation
+                Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -71,19 +65,10 @@ public class LoginActivity extends AppCompatActivity {
             btnGoogleLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Simulate auto-login with a demo Google account
-                    String demoEmail = "googleuser@plantit.com";
-                    String demoPassword = "googlepass";
-                    Login loginHelper = new Login(LoginActivity.this);
-                    boolean isValid = loginHelper.login(demoEmail, demoPassword);
-
-                    if (isValid) {
-                        Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        tilEmail.setError("Demo Google account not available");
-                    }
+                    // Always go to HomeInterface after clicking Google login
+                    Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
+                    startActivity(intent);
+                    finish();
                 }
             });
         }
