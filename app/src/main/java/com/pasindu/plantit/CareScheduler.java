@@ -26,4 +26,16 @@ public class CareScheduler {
         DataBase db = new DataBase(context);
         return db.getCareSchedulesForPlant(plantId);
     }
+
+    // Get care plan details for a plant
+    public Cursor getCarePlan(int plantId) {
+        DataBase db = new DataBase(context);
+        return db.getCarePlanForPlant(plantId);
+    }
+
+    // Update care plan details for a plant
+    public boolean updateCarePlan(int plantId, int waterFrequency, int fertilizeFrequency, String sunlight) {
+        DataBase db = new DataBase(context);
+        return db.updateCarePlanForPlant(plantId, waterFrequency, fertilizeFrequency, sunlight);
+    }
 }

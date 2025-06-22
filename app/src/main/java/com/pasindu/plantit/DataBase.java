@@ -23,7 +23,11 @@ public class DataBase extends SQLiteOpenHelper {
                 "age INTEGER, " +
                 "location TEXT, " +
                 "notes TEXT, " +
-                "image BLOB)";
+                "image BLOB, " +
+                "waterFrequency INTEGER, " +
+                "fertilizeFrequency INTEGER, " +
+                "sunlight TEXT" +
+                ")";
         db.execSQL(CREATE_PLANTS_TABLE);
 
         String CREATE_USERS_TABLE = "CREATE TABLE users (" +
@@ -145,5 +149,25 @@ public class DataBase extends SQLiteOpenHelper {
             "SELECT * FROM care_schedules WHERE plantId=? ORDER BY date, time",
             new String[]{String.valueOf(plantId)}
         );
+    }
+
+    // Get care plan details for a plant
+    public Cursor getCarePlanForPlant(int plantId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery(
+            "SELECT waterFrequency, fertilizeFrequency, sunlight FROM plants WHERE id=?",
+            new String[]{String.valueOf(plantId)}
+        );
+    }
+
+    // Update care plan details for a plant
+    public boolean updateCarePlanForPlant(int plantId, int waterFrequency, int fertilizeFrequency, String sunlight) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("waterFrequency", waterFrequency);
+        values.put("fertilizeFrequency", fertilizeFrequency);
+        values.put("sunlight", sunlight);
+        int rows = db.update("plants", values, "id=?", new String[]{String.valueOf(plantId)});
+        return rows > 0;
     }
 }
