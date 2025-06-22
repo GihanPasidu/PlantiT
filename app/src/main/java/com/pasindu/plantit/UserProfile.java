@@ -1,7 +1,6 @@
 package com.pasindu.plantit;
 
 import android.database.Cursor;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import com.google.android.material.button.MaterialButton;
@@ -9,14 +8,9 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UserProfile extends AppCompatActivity {
-    private Context context;
-
-    public UserProfile(Context context) {
-        this.context = context;
-    }
 
     public void showAllPlants() {
-        DataBase db = new DataBase(context);
+        DataBase db = new DataBase(this);
         Cursor cursor = db.getAllPlants();
         if (cursor != null) {
             int nameIdx = cursor.getColumnIndexOrThrow("name");
@@ -33,13 +27,13 @@ public class UserProfile extends AppCompatActivity {
 
     // Save user profile data to database
     public boolean saveProfile(String email, String name, String memberSince, byte[] profilePicture) {
-        DataBase db = new DataBase(context);
+        DataBase db = new DataBase(this);
         return db.updateUserProfile(email, name, memberSince, profilePicture);
     }
 
     // Load user profile data from database
     public UserData loadProfile(String email) {
-        DataBase db = new DataBase(context);
+        DataBase db = new DataBase(this);
         Cursor cursor = db.getUserProfile(email);
         UserData userData = null;
         if (cursor != null && cursor.moveToFirst()) {

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true" android:drawable="@drawable/circle_indicator_green" />
-    <item android:state_enabled="false" android:drawable="@android:color/transparent" />
-</selector>
-
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
+    <solid android:color="@color/primary"/>
     <size android:width="8dp" android:height="8dp"/>
-    <solid android:color="#388E3C"/>
 </shape>
