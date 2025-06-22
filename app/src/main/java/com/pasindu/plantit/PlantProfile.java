@@ -14,3 +14,5 @@ public class PlantProfile {
         db.insertPlant(name, type, age, location, notes, imageData);
     }
 }
+
+// No changes needed here, just do not start this class with an Intent.
