@@ -1,107 +1,116 @@
 package com.pasindu.plantit;
 
-import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Patterns;
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
-public class SignUpActivity {
-    private Context context;
-    private String fullName;
-    private String email;
-    private String password;
-    private String confirmPassword;
-    private boolean termsAccepted;
+public class SignUpActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.signup);
 
-    public SignUpActivity(Context context, String fullName, String email, String password, String confirmPassword, boolean termsAccepted) {
-        this.context = context;
-        this.fullName = fullName;
-        this.email = email;
-        this.password = password;
-        this.confirmPassword = confirmPassword;
-        this.termsAccepted = termsAccepted;
-    }
+        final TextInputLayout tilFullName = findViewById(R.id.tilFullName);
+        final TextInputLayout tilEmail = findViewById(R.id.tilEmail);
+        final TextInputLayout tilPassword = findViewById(R.id.tilPassword);
+        final TextInputLayout tilConfirmPassword = findViewById(R.id.tilConfirmPassword);
+        final TextInputEditText etFullName = findViewById(R.id.etSignupFullName);
+        final TextInputEditText etEmail = findViewById(R.id.etSignupEmail);
+        final TextInputEditText etPassword = findViewById(R.id.etSignupPassword);
+        final TextInputEditText etConfirmPassword = findViewById(R.id.etSignupConfirm);
+        final MaterialCheckBox cbTerms = findViewById(R.id.cbTerms);
+        final MaterialButton btnSignUp = findViewById(R.id.btnSignup);
 
-    public String validate() {
-        if (fullName == null || fullName.trim().isEmpty()) {
-            return "Full name is required";
+        btnSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String fullName = etFullName.getText() != null ? etFullName.getText().toString().trim() : "";
+                String email = etEmail.getText() != null ? etEmail.getText().toString().trim() : "";
+                String password = etPassword.getText() != null ? etPassword.getText().toString() : "";
+                String confirmPassword = etConfirmPassword.getText() != null ? etConfirmPassword.getText().toString() : "";
+                boolean termsAccepted = cbTerms != null && cbTerms.isChecked();
+
+                boolean valid = true;
+
+                if (fullName.isEmpty()) {
+                    tilFullName.setError("Full name is required");
+                    valid = false;
+                } else {
+                    tilFullName.setError(null);
+                }
+
+                if (email.isEmpty()) {
+                    tilEmail.setError("Email is required");
+                    valid = false;
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    tilEmail.setError("Enter a valid email");
+                    valid = false;
+                } else {
+                    tilEmail.setError(null);
+                }
+
+                if (password.isEmpty()) {
+                    tilPassword.setError("Password is required");
+                    valid = false;
+                } else if (password.length() < 8) {
+                    tilPassword.setError("Password must be at least 8 characters");
+                    valid = false;
+                } else {
+                    tilPassword.setError(null);
+                }
+
+                if (!password.equals(confirmPassword)) {
+                    tilConfirmPassword.setError("Passwords do not match");
+                    valid = false;
+                } else {
+                    tilConfirmPassword.setError(null);
+                }
+
+                if (!termsAccepted) {
+                    if (cbTerms != null) cbTerms.setError("You must accept the Terms & Conditions");
+                    valid = false;
+                } else {
+                    if (cbTerms != null) cbTerms.setError(null);
+                }
+
+                if (!valid) return;
+
+                DataBase db = new DataBase(SignUpActivity.this);
+                boolean signUpSuccess = db.registerUserWithName(email, password, fullName);
+
+                if (signUpSuccess) {
+                    Intent intent = new Intent(SignUpActivity.this, HomeInterface.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    tilEmail.setError("Registration failed. Email may already be used.");
+                }
+            }
+        });
+
+        // Optional: Enable/disable button based on terms checkbox
+        if (cbTerms != null && btnSignUp != null) {
+            cbTerms.setOnCheckedChangeListener((buttonView, isChecked) -> btnSignUp.setEnabled(isChecked));
+            btnSignUp.setEnabled(cbTerms.isChecked());
         }
-        if (email == null || email.trim().isEmpty()) {
-            return "Email is required";
+
+        // Handle "Sign In" text click to go to Login screen
+        View tvSignIn = findViewById(R.id.tvSignIn);
+        if (tvSignIn != null) {
+            tvSignIn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            return "Enter a valid email";
-        }
-        if (password == null || password.isEmpty()) {
-            return "Password is required";
-        }
-        if (password.length() < 8) {
-            return "Password must be at least 8 characters";
-        }
-        if (confirmPassword == null || !password.equals(confirmPassword)) {
-            return "Passwords do not match";
-        }
-        if (!termsAccepted) {
-            return "You must accept the Terms & Conditions";
-        }
-        return null; // All validations passed
-    }
-
-    public boolean register() {
-        String validationError = validate();
-        if (validationError != null) {
-            // You can show this error in UI
-            return false;
-        }
-        DataBase db = new DataBase(context);
-        // Store full name as well
-        boolean result = db.registerUserWithName(email, password, fullName);
-        return result;
-    }
-
-    public Context getContext() {
-        return context;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public boolean isTermsAccepted() {
-        return termsAccepted;
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
-    public void setTermsAccepted(boolean termsAccepted) {
-        this.termsAccepted = termsAccepted;
     }
 }

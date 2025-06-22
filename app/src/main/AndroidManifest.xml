@@ -38,6 +38,7 @@
         <activity android:name=".PlantProfile" />
         <activity android:name=".DiseaseDetection" />
         <activity android:name=".CareScheduler" />
+        <activity android:name=".GoogleMapActivity" />
     </application>
 
 </manifest>

@@ -67,45 +67,61 @@ public class LoginActivity extends AppCompatActivity {
 
         // Auto-login for "Continue with Google"
         MaterialButton btnGoogleLogin = findViewById(R.id.btnGoogleLogin);
-        btnGoogleLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Simulate auto-login with a demo Google account
-                String demoEmail = "googleuser@plantit.com";
-                String demoPassword = "googlepass";
-                Login loginHelper = new Login(LoginActivity.this);
-                boolean isValid = loginHelper.login(demoEmail, demoPassword);
+        if (btnGoogleLogin != null) {
+            btnGoogleLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Simulate auto-login with a demo Google account
+                    String demoEmail = "googleuser@plantit.com";
+                    String demoPassword = "googlepass";
+                    Login loginHelper = new Login(LoginActivity.this);
+                    boolean isValid = loginHelper.login(demoEmail, demoPassword);
 
-                if (isValid) {
-                    Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    tilEmail.setError("Demo Google account not available");
+                    if (isValid) {
+                        Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        tilEmail.setError("Demo Google account not available");
+                    }
                 }
-            }
-        });
+            });
+        }
 
         // Auto-login for "Continue with Facebook"
         MaterialButton btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
-        btnFacebookLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Simulate auto-login with a demo Facebook account
-                String demoEmail = "facebookuser@plantit.com";
-                String demoPassword = "facebookpass";
-                Login loginHelper = new Login(LoginActivity.this);
-                boolean isValid = loginHelper.login(demoEmail, demoPassword);
+        if (btnFacebookLogin != null) {
+            btnFacebookLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Simulate auto-login with a demo Facebook account
+                    String demoEmail = "facebookuser@plantit.com";
+                    String demoPassword = "facebookpass";
+                    Login loginHelper = new Login(LoginActivity.this);
+                    boolean isValid = loginHelper.login(demoEmail, demoPassword);
 
-                if (isValid) {
-                    Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    tilEmail.setError("Demo Facebook account not available");
+                    if (isValid) {
+                        Intent intent = new Intent(LoginActivity.this, HomeInterface.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        tilEmail.setError("Demo Facebook account not available");
+                    }
                 }
-            }
-        });
+            });
+        }
+
+        // Only use the Sign Up text for navigation
+        View tvSignUp = findViewById(R.id.tvSignUp);
+        if (tvSignUp != null) {
+            tvSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }
 
@@ -120,6 +136,10 @@ class Login {
     public boolean login(String email, String password) {
         // Demo Google account
         if (email.equals("googleuser@plantit.com") && password.equals("googlepass")) {
+            return true;
+        }
+        // Demo Facebook account
+        if (email.equals("facebookuser@plantit.com") && password.equals("facebookpass")) {
             return true;
         }
         DataBase db = new DataBase(context);

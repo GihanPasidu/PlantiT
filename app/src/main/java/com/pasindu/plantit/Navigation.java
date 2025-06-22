@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import com.google.android.material.button.MaterialButton;
 import android.content.Intent;
+import android.net.Uri;
 
 public class Navigation extends Activity {
     @Override
@@ -76,6 +77,17 @@ public class Navigation extends Activity {
             public void onClick(View v) {
                 // Placeholder: Navigate to MainActivity
                 Intent intent = new Intent(Navigation.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Button: View Map
+        MaterialButton btnViewMap = findViewById(R.id.btnViewMap);
+        btnViewMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open in-app Google Map UI
+                Intent intent = new Intent(Navigation.this, GoogleMapActivity.class);
                 startActivity(intent);
             }
         });
