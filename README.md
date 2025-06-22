@@ -32,6 +32,13 @@ PlantiT/
 - **build.gradle**  
   Gradle build configuration files for the project and app module.
 
+## Prerequisites
+
+- [Android Studio](https://developer.android.com/studio) (latest stable version recommended)
+- Android SDK (API level 21 or higher)
+- Internet connection for downloading dependencies
+- A valid Google Maps API key (already included in the manifest)
+
 ## Getting Started
 
 1. Clone the repository.
