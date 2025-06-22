@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/background">
+    android:background="@drawable/main_gradient_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -412,7 +412,9 @@
                 style="@style/Widget.Material3.Button.TonalButton"
                 app:cornerRadius="28dp"
                 app:icon="@drawable/ic_search"
-                app:iconSize="18dp" />
+                app:iconSize="18dp"
+                app:backgroundTint="@color/primary"
+                app:iconTint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBuyTools"
@@ -426,7 +428,9 @@
                 style="@style/Widget.Material3.Button.TonalButton"
                 app:cornerRadius="28dp"
                 app:icon="@drawable/ic_build"
-                app:iconSize="18dp" />
+                app:iconSize="18dp"
+                app:backgroundTint="@color/success"
+                app:iconTint="@color/white" />
 
         </LinearLayout>
 

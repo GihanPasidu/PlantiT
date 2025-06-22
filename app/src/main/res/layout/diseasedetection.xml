@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_background"
+    android:background="@drawable/main_gradient_background"
     android:padding="24dp"
     tools:context=".DiseaseDetection">
 
@@ -127,7 +127,8 @@
                     app:cornerRadius="28dp"
                     app:strokeWidth="2dp"
                     app:icon="@drawable/ic_camera_alt"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:iconTint="@color/primary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnChooseGallery"
@@ -142,7 +143,8 @@
                     app:cornerRadius="28dp"
                     app:strokeWidth="2dp"
                     app:icon="@drawable/ic_photo_library"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:iconTint="@color/primary" />
 
             </LinearLayout>
 
@@ -202,8 +204,10 @@
         android:enabled="false"
         style="@style/Widget.Material3.Button"
         app:cornerRadius="28dp"
+        app:backgroundTint="@color/primary"
         app:icon="@drawable/ic_search"
         app:iconSize="20dp"
+        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagePreviewCard" />

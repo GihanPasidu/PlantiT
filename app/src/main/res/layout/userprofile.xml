@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/rounded_background">
+    android:background="@drawable/main_gradient_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -435,7 +435,6 @@
             android:textColor="@color/white"
             style="@style/Widget.Material3.Button"
             app:backgroundTint="@color/error"
-            app:cornerRadius="24dp"
             app:icon="@drawable/ic_logout"
             app:iconSize="18dp"
             app:iconTint="@color/white" />

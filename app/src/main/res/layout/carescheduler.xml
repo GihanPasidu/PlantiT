@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_background"
+    android:background="@drawable/main_gradient_background"
     android:padding="24dp">
 
     <!-- Header Section -->
@@ -125,7 +125,8 @@
                     android:textAllCaps="false"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     app:cornerRadius="24dp"
-                    app:strokeWidth="2dp" />
+                    app:strokeWidth="2dp"
+                    app:iconTint="@color/primary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSetReminder"
@@ -137,7 +138,9 @@
                     android:textSize="14sp"
                     android:textAllCaps="false"
                     style="@style/Widget.Material3.Button"
-                    app:cornerRadius="24dp" />
+                    app:cornerRadius="24dp"
+                    app:backgroundTint="@color/primary"
+                    app:iconTint="@color/white" />
 
             </LinearLayout>
 
@@ -204,8 +207,10 @@
             android:textAllCaps="false"
             style="@style/Widget.Material3.Button.TonalButton"
             app:cornerRadius="24dp"
+            app:backgroundTint="@color/success"
             app:icon="@drawable/ic_check"
-            app:iconSize="16dp" />
+            app:iconSize="16dp"
+            app:iconTint="@color/white" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnViewHistory"
@@ -218,8 +223,10 @@
             android:textAllCaps="false"
             style="@style/Widget.Material3.Button.TonalButton"
             app:cornerRadius="24dp"
+            app:backgroundTint="@color/info"
             app:icon="@drawable/ic_history"
-            app:iconSize="16dp" />
+            app:iconSize="16dp"
+            app:iconTint="@color/white" />
 
     </LinearLayout>
 

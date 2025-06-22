@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@drawable/login_background">
+    android:background="@drawable/main_gradient_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Welcome Back"
+            android:text="Welcome to PlantiT"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textColor="@color/primary_text"
@@ -47,7 +47,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:text="Sign in to continue caring for your plants"
+            android:text="Sign in to grow and care for your plants"
             android:textSize="16sp"
             android:textColor="@color/secondary_text"
             android:gravity="center"
@@ -158,7 +158,9 @@
                     style="@style/Widget.Material3.Button"
                     app:cornerRadius="28dp"
                     app:icon="@drawable/ic_login"
-                    app:iconSize="20dp" />
+                    app:iconSize="20dp"
+                    app:backgroundTint="@color/primary"
+                    app:iconTint="@color/white" />
 
                 <!-- Loading Indicator (Initially Hidden) -->
                 <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -209,7 +211,8 @@
                     app:strokeWidth="2dp"
                     app:icon="@drawable/ic_google"
                     app:iconSize="24dp"
-                    app:iconTint="@null" />
+                    app:iconTint="@null"
+                    app:strokeColor="@color/primary" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnFacebookLogin"
@@ -220,7 +223,8 @@
                     app:strokeWidth="2dp"
                     app:icon="@drawable/ic_facebook"
                     app:iconSize="24dp"
-                    app:iconTint="@null" />
+                    app:iconTint="@null"
+                    app:strokeColor="@color/primary" />
 
             </LinearLayout>
 
